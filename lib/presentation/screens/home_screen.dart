@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:viewgoapp/presentation/views/views.dart';
+
 
 class HomeScreen extends StatefulWidget {
    
@@ -19,31 +21,38 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final colors = Theme.of(context).colorScheme; //* Datos del tema de la aplicacion
 
+    final screens = [const ListaView(), const EscanerView(), const HistorialView()];
+
     return Scaffold(
-      body: Center(
-         child: Text('Hola Mundo'),
-      ),
+      body: IndexedStack(children: screens, index: selectedIndex,),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         currentIndex: selectedIndex,
-        onTap: (value) {
+        onTap: (selection) {
           setState(() {
-            selectedIndex = value;  
+            selectedIndex = selection;  
           });
         },
         elevation: 0,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.two_wheeler),
-            activeIcon: Icon(Icons.motorcycle),
-            label: 'Motors',
-            backgroundColor: colors.primary 
+            icon: const Icon(Icons.list_alt_outlined),
+            activeIcon: const Icon(Icons.list_sharp),
+            label: 'Buscar',
+            backgroundColor: Colors.amber 
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            activeIcon: Icon(Icons.person),
-            label: 'Users',
+            icon: const Icon(Icons.qr_code_scanner_outlined),
+            activeIcon: const Icon(Icons.qr_code_2_sharp),
+            label: 'Escanear',
+            backgroundColor: colors.tertiary, 
+          ),
+
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.history),
+            activeIcon: const Icon(Icons.history_rounded),
+            label: 'Historial',
             backgroundColor: colors.tertiary, 
           ),
         ],
