@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:viewgoapp/presentation/views/views.dart';
+import 'package:viewgoapp/themes/app_theme.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -25,6 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       body: IndexedStack(children: screens, index: selectedIndex,),
+
+      //* Barra de navegacion
+
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         currentIndex: selectedIndex,
@@ -34,26 +38,26 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         elevation: 0,
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: const Icon(Icons.list_alt_outlined),
-            activeIcon: const Icon(Icons.list_sharp),
+            icon: Icon(Icons.list_alt_outlined),
+            activeIcon: Icon(Icons.list_sharp),
             label: 'Buscar',
-            backgroundColor: Colors.amber 
+            backgroundColor: AppTheme.terciary 
           ),
 
           BottomNavigationBarItem(
             icon: const Icon(Icons.qr_code_scanner_outlined),
             activeIcon: const Icon(Icons.qr_code_2_sharp),
             label: 'Escanear',
-            backgroundColor: colors.tertiary, 
+            backgroundColor: AppTheme.primary, 
           ),
 
           BottomNavigationBarItem(
             icon: const Icon(Icons.history),
             activeIcon: const Icon(Icons.history_rounded),
             label: 'Historial',
-            backgroundColor: colors.tertiary, 
+            backgroundColor: AppTheme.secondary, 
           ),
         ],
       ),
