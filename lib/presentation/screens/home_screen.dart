@@ -47,15 +47,15 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           BottomNavigationBarItem(
-            icon: const Icon(Icons.qr_code_scanner_outlined),
-            activeIcon: const Icon(Icons.qr_code_2_sharp),
+            icon: Icon(Icons.qr_code_scanner_outlined),
+            activeIcon: Icon(Icons.qr_code_2_sharp),
             label: 'Escanear',
             backgroundColor: AppTheme.primary, 
           ),
 
           BottomNavigationBarItem(
-            icon: const Icon(Icons.history),
-            activeIcon: const Icon(Icons.history_rounded),
+            icon: Icon(Icons.history),
+            activeIcon: Icon(Icons.history_rounded),
             label: 'Historial',
             backgroundColor: AppTheme.secondary, 
           ),
