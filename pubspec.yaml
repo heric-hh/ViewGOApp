@@ -58,6 +58,19 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+    - family: Lexend
+      fonts:
+        - asset: assets/fonts/Lexend-Regular.ttf
+          style: normal
+    - family: Lexend Bold
+      fonts:
+        - asset: assets/fonts/Lexend-Bold.ttf
+          style: normal
+    - family: Lexend SemiBold
+      fonts:
+        - asset: assets/fonts/Lexend-SemiBold.ttf
+          style: normal
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -75,13 +88,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-      - family: Lexend
-      fonts:
-      #- asset: fonts/Lexend-Bold.ttf
-      #- asset: fonts/Lexend-Light.ttf
-          - asset: fonts/Lexend-Regular.ttf
-      #- asset: fonts/Lexend-Semibold.ttf
+  
   # fonts:
   #   - family: Schyler
   #     fonts:

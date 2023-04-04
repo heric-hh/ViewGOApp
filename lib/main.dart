@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'View GO',
-      // theme: ThemeData(fontFamily: 'Lexend'),
       initialRoute: AppRoutes.initialRoute,
       routes: AppRoutes.routes,
       

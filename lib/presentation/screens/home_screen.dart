@@ -18,14 +18,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
 
-    //TODO: Bottom Navigation
-
     final colors = Theme.of(context).colorScheme; //* Datos del tema de la aplicacion
 
-    final screens = [const ListaView(), const EscanerView(), const HistorialView()];
+    final screens = [const EscanerView(), const BuscarListaView(), const HistorialView()];
 
     return Scaffold(
-      body: IndexedStack(children: screens, index: selectedIndex,),
+      body: IndexedStack(index: selectedIndex, children: screens,),
 
       //* Barra de navegacion
 
@@ -40,18 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         items: const [
           BottomNavigationBarItem(
+            icon: Icon(Icons.qr_code_scanner_outlined),
+            activeIcon: Icon(Icons.qr_code_2_sharp),
+            label: 'Escanear',
+            backgroundColor: AppTheme.primary, 
+          ),
+
+          BottomNavigationBarItem(
             icon: Icon(Icons.list_alt_outlined),
             activeIcon: Icon(Icons.list_sharp),
             label: 'Buscar',
             backgroundColor: AppTheme.terciary 
           ),
 
-          BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner_outlined),
-            activeIcon: Icon(Icons.qr_code_2_sharp),
-            label: 'Escanear',
-            backgroundColor: AppTheme.primary, 
-          ),
 
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
