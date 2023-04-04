@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:viewgoapp/themes/app_theme.dart';
 
-class customPainterBuscarLista extends StatelessWidget {
-  const customPainterBuscarLista({super.key});
+class CustomPainterBuscarLista extends StatelessWidget {
+  const CustomPainterBuscarLista({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,6 @@ class customPainterBuscarLista extends StatelessWidget {
 class HeaderBuscarLista extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: implement painter
     final painter = Paint();
 
     //* Propiedades
@@ -38,7 +37,6 @@ class HeaderBuscarLista extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
     return true;
   }
 

@@ -16,32 +16,40 @@ class _EscanerViewState extends State<EscanerView> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [
-        customPainterEscaner(),
-
-        //TODO: Titulo dentro del customPainter
-        Container(
-          margin: EdgeInsets.only(top: 30, left: 20),
-          width: 300,
-          height: 100,
-          //color: Colors.red,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                '¿Qué vas a',
-                style: AppTheme.styleTitulos
-              ),
-              Text(
-                ' comprar hoy?',
-                style: AppTheme.styleTitulos
-              ),
-            ],
-          ),
-        ),
-        
+      children: const [
+        CustomPainterEscaner(),
+        TituloHeaderEscaner(),        
       ],
+    );
+  }
+}
+
+class TituloHeaderEscaner extends StatelessWidget {
+  const TituloHeaderEscaner({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 30, left: 20),
+      width: 300,
+      height: 100,
+      //color: Colors.red,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Text(
+            '¿Qué vas a',
+            style: AppTheme.styleTitulos
+          ),
+          Text(
+            ' comprar hoy?',
+            style: AppTheme.styleTitulos
+          ),
+        ],
+      ),
     );
   }
 }

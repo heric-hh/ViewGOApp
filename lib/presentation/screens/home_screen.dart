@@ -17,9 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-    final colors = Theme.of(context).colorScheme; //* Datos del tema de la aplicacion
-
+    
     final screens = [const EscanerView(), const BuscarListaView(), const HistorialView()];
 
     return Scaffold(
