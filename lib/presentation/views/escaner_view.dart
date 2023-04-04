@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:viewgoapp/themes/app_theme.dart';
+import 'package:viewgoapp/widgets/widgets.dart';
 
 class EscanerView extends StatefulWidget {
   const EscanerView({super.key});
@@ -16,45 +16,43 @@ class _EscanerViewState extends State<EscanerView> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
-          height: double.infinity,
-          width: double.infinity,
-          // color: Colors.indigo,
-          child: CustomPaint(
-            painter: _HeaderEscaner(),
+        customPainterEscaner(),
+
+        //TODO: Titulo dentro del customPainter
+        Container(
+          margin: EdgeInsets.only(top: 30, left: 20),
+          width: 300,
+          height: 100,
+          // color: Colors.red,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '¿Qué vas a',
+                style: TextStyle(
+                  fontFamily: 'Lexend',
+                  fontSize: 30, 
+                  fontWeight: FontWeight.bold
+                ),
+
+              ),
+              Text(
+                ' comprar hoy?xD',
+                style: TextStyle(
+                  fontFamily: 'Lexend',
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white
+
+                ), 
+              ),
+            ],
           ),
-        )
+        ),
+        
       ],
     );
   }
 }
 
-class _HeaderEscaner extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final painter = Paint();
-    
-    //* Propiedades
-    painter.color = AppTheme.primary;
-    painter.style = PaintingStyle.fill;
-    painter.strokeWidth = 10;
-
-    final path = Path();
-
-    //* Dibujando con el path y el lapiz
-    path.lineTo(0, size.height * 0.20);
-    // path.lineTo(size.width * 0.5, size.height * 0.23);
-    path.quadraticBezierTo(size.width * 0.25, size.height * 0.2, size.width * 0.45, size.height * 0.23);
-    path.quadraticBezierTo(size.width * 0.75, size.height * 0.28, size.width, size.height * 0.25);
-    //path.lineTo(size.width, size.height * 0.25);
-    path.lineTo(size.width, 0);
-
-    canvas.drawPath(path, painter);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
-  }
-
-}
