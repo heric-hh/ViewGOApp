@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viewgoapp/themes/app_theme.dart';
 
 class ScanButton extends StatelessWidget {
   const ScanButton({super.key});
@@ -9,8 +10,9 @@ class ScanButton extends StatelessWidget {
       onPressed: () {
         
       },
-      child: const Icon(Icons.qr_code),
+      backgroundColor: AppTheme.primary,
       elevation: 0,
+      child: const Icon(Icons.qr_code),
     );
   }
 }

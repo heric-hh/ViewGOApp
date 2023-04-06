@@ -13,6 +13,19 @@ class AppTheme {
     color: Colors.white 
   );
 
+  //* TextStyle para Label del BottomNavigationBar
+  static const TextStyle styleLabel = TextStyle(
+    fontFamily: 'Lexend Light',
+    fontSize: 14,
+    color: secondary
+  );
+
+  static const TextStyle styleLabelUnselected = TextStyle(
+    fontFamily: 'Lexend Light',
+    fontSize: 12,
+    color: Colors.grey
+  );
+
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     bottomAppBarColor: const Color(0xffFDAB01),
   );
