@@ -4,6 +4,7 @@ class AppTheme {
   static const Color primary = Color(0xffFDAB01);
   static const Color terciary = Color(0xffF84C04);
   static const Color secondary = Color(0xffF95844);
+  static const Color arrowBackColor = Color(0xff8BBF1D);
 
   //* TextStyle para Titulos dentro del customPainter
   
@@ -24,6 +25,28 @@ class AppTheme {
     fontFamily: 'Lexend Light',
     fontSize: 12,
     color: Colors.grey
+  );
+
+  //* TextStyle para searchDelegate
+
+  static const TextStyle styleSearchDelegateLabel = TextStyle(
+    fontFamily: 'Lexend SemiBold',
+    fontSize: 16,
+    color: primary
+  );
+
+  //* TextStyle para imageAsset en la searchDelegate
+  
+  static const TextStyle styleTextImageAsset = TextStyle(
+    fontFamily: 'Lexend Bold',
+    fontSize: 26,
+    color: Colors.black38
+  );
+
+  static const TextStyle styleSubTextImageAsset = TextStyle(
+    fontFamily: 'Lexend Bold',
+    fontSize: 20,
+    color: Colors.black38
   );
 
   static final ThemeData lightTheme = ThemeData.light().copyWith(
