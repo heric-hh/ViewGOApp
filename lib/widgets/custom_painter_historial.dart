@@ -23,7 +23,7 @@ class CustomPainterHistorial extends StatelessWidget {
 class HeaderHistorial extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final painter = Paint();
+     final painter = Paint();
     
     //* Propiedades
     painter.color = AppTheme.secondary;
@@ -33,9 +33,10 @@ class HeaderHistorial extends CustomPainter {
     final path = Path();
 
     //* Dibujando con el path y el lapiz
-    path.lineTo(0, size.height * 0.2);
+    path.lineTo(0, size.height * 0.20);
     // path.lineTo(size.width * 0.5, size.height * 0.23);
-    path.quadraticBezierTo(size.width * 0.5, size.height * 0.22, size.width, size.height * 0.18);
+    path.quadraticBezierTo(size.width * 0.25, size.height * 0.2, size.width * 0.45, size.height * 0.23);
+    path.quadraticBezierTo(size.width * 0.75, size.height * 0.28, size.width, size.height * 0.25);
     //path.lineTo(size.width, size.height * 0.25);
     path.lineTo(size.width, 0);
 
