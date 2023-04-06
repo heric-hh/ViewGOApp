@@ -1,63 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:viewgoapp/presentation/views/views.dart';
-import 'package:viewgoapp/themes/app_theme.dart';
+import 'package:viewgoapp/providers/ui_provider.dart';
+import 'package:viewgoapp/widgets/widgets.dart';
 
-
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
    
   const HomeScreen({Key? key}) : super(key: key);
-
+  
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: _HomePageBody(),
+      bottomNavigationBar: CustomNavigationBar(),
+      floatingActionButton: ScanButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-
-  int selectedIndex = 0; //* Indice de la opcion seleccionada del BottomNavigationBar
+class _HomePageBody extends StatelessWidget {
+  const _HomePageBody();
 
   @override
   Widget build(BuildContext context) {
-    
-    final screens = [const EscanerView(), const BuscarListaView(), const HistorialView()];
+    //* Obtener el selected menu opt
+    final uiProvider = Provider.of<UiProvider>(context);
 
-    return Scaffold(
-      body: IndexedStack(index: selectedIndex, children: screens,),
+    final currentIndex = uiProvider.selectedMenuOpt; //* Get para obtener el selectedMenuOpt
 
-      //* Barra de navegacion
-
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
-        currentIndex: selectedIndex,
-        onTap: (selection) {
-          setState(() {
-            selectedIndex = selection;  
-          });
-        },
-        elevation: 0,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner_outlined),
-            activeIcon: Icon(Icons.qr_code_2_sharp),
-            label: 'Escanear',
-            backgroundColor: AppTheme.primary, 
-          ),
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_outlined),
-            activeIcon: Icon(Icons.list_sharp),
-            label: 'Buscar',
-            backgroundColor: AppTheme.terciary 
-          ),
-
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            activeIcon: Icon(Icons.history_rounded),
-            label: 'Historial',
-            backgroundColor: AppTheme.secondary, 
-          ),
-        ],
-      ),
-    );
+    switch (currentIndex) {
+      case 0:
+        return const BuscarListaView();
+      case 1:
+        return const HistorialView();
+      default:
+        return const BuscarListaView();
+    }
   }
 }
