@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:viewgoapp/themes/app_theme.dart';
 import 'package:viewgoapp/widgets/widgets.dart';
 
-import '../../themes/app_theme.dart';
 
 class BuscarListaView extends StatelessWidget {
    
