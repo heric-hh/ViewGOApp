@@ -9,7 +9,7 @@ class CustomPainterHistorial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: double.infinity,
+      height: 200,
       width: double.infinity,
       // color: Colors.indigo,
       child: CustomPaint(
@@ -33,13 +33,11 @@ class HeaderHistorial extends CustomPainter {
     final path = Path();
 
     //* Dibujando con el path y el lapiz
-    path.lineTo(0, size.height * 0.20);
-    // path.lineTo(size.width * 0.5, size.height * 0.23);
-    path.quadraticBezierTo(size.width * 0.25, size.height * 0.2, size.width * 0.45, size.height * 0.23);
-    path.quadraticBezierTo(size.width * 0.75, size.height * 0.28, size.width, size.height * 0.25);
-    //path.lineTo(size.width, size.height * 0.25);
+    path.lineTo(0, size.height * 0.85);
+    path.quadraticBezierTo(size.width * 0.15, size.height * 0.85, size.width * 0.45, size.height * 0.7);
+    path.quadraticBezierTo(size.width * 0.75, size.height * 0.55, size.width, size.height * 0.65);
     path.lineTo(size.width, 0);
-
+  
     canvas.drawPath(path, painter);
   }
 

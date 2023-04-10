@@ -7,8 +7,9 @@ class CustomPainterBuscarLista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: double.infinity,
+      height: 200,
       width: double.infinity,
+      // child: Container(color: Colors.blue),
       child: CustomPaint(painter: HeaderBuscarLista()),
     );
   }
@@ -22,13 +23,13 @@ class HeaderBuscarLista extends CustomPainter {
     //* Propiedades
     painter.color = AppTheme.terciary;
     painter.style = PaintingStyle.fill;
-    painter.strokeWidth = 10;
+    // painter.strokeWidth = 10;
 
     //* Dibujando con el lápiz y el path
     final path = Path();
 
-    path.lineTo(0, size.height * 0.25);
-    path.quadraticBezierTo(size.width * 0.35, size.height * 0.26, size.width, size.height * 0.2);
+    path.lineTo(0, size.height * 0.9);
+    path.quadraticBezierTo(size.width * 0.55, size.height * 0.95, size.width, size.height * 0.8);
     path.lineTo(size.width, 0);
     
     //* Dibujando en el canvas
