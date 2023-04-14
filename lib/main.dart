@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:viewgoapp/providers/mongo_db_provider.dart';
 import 'package:viewgoapp/providers/ui_provider.dart';
 import 'package:viewgoapp/router/app_routes.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await MongoDBProvider.conectar();
+  runApp(const ViewGO());
+}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ViewGO extends StatelessWidget {
+  const ViewGO({super.key});
 
   @override
   Widget build(BuildContext context) {
