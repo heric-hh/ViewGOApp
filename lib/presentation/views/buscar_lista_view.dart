@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:viewgoapp/providers/mongo_db_provider.dart';
+import 'package:viewgoapp/models/mongo_db_model.dart';
 import 'package:viewgoapp/themes/app_theme.dart';
 import 'package:viewgoapp/widgets/widgets.dart';
 
@@ -14,7 +14,7 @@ class BuscarListaView extends StatelessWidget {
 
     // TODO: implement build
     return FutureBuilder(
-      future: MongoDBProvider.getProductos(),
+      future: MongoDBModel.getProductos(),
       builder: (context, snapshot) {
         if(snapshot.hasData) {
           final data = snapshot.data as List<Map<String, dynamic>>;

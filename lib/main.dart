@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:viewgoapp/providers/mongo_db_provider.dart';
+import 'package:viewgoapp/models/mongo_db_model.dart';
 import 'package:viewgoapp/providers/ui_provider.dart';
 import 'package:viewgoapp/router/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await MongoDBProvider.conectar();
+  await MongoDBModel.conectar();
   runApp(const ViewGO());
 }
 
