@@ -11,7 +11,6 @@ class MongoDBProvider {
     db = await Db.create(MONGO_CONN);
     await db.open();
     inspect(db);
-    coleccionProductos = db.collection(COLECCION);
     print('Conectado');
     }
 
@@ -19,4 +18,11 @@ class MongoDBProvider {
       print('ERROR: ${e}');
     }
   } 
+
+  static Future<List<Map<String, dynamic>>> getProductos() async {
+    coleccionProductos = db.collection(COLECCION);
+    final consulta = await coleccionProductos.find();
+    final listaDeDatos = await consulta.toList();
+    return listaDeDatos;
+  }
 }
