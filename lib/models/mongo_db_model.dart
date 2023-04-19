@@ -33,4 +33,23 @@ class MongoDBModel {
     final productoPorId = await db.collection(COLECCION).findOne(where.eq('id', idQr));
     return productoPorId;
   }
+
+  //* Buscar los datos en la BD dentro del SearchDelegate
+  static Future<List<dynamic>> getProductSuggestions(String query) async {
+  
+  final products = await db.collection(COLECCION).find({
+    'description': { '\$regex': query, '\$options': 'i' }
+  }).toList();
+
+  print(query);
+  // final products = await db.collection(COLECCION).find(where.eq('description', query)).toList();
+
+  print('PRODUCTOSSSSSSSSS: ${products}');
+    
+ // Transforma los resultados en una lista de sugerencias
+  print(products.map((product) => product['description'].toString()).toList());
+
+  return Future.value(products.map((product) => product['description']).toList());
+}
+
 }

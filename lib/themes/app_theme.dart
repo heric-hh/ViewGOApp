@@ -57,6 +57,14 @@ class AppTheme {
     color: Colors.black87
   );
 
+  //* TextStyle para Titulo "Productos Populares" en ProductosView
+  
+  static const TextStyle styleDescripcionProdc = TextStyle(
+    fontFamily: 'Lexend Bold',
+    fontSize: 16,
+    color: Colors.black87
+  );
+
   static final ThemeData lightTheme = ThemeData.light().copyWith(
     bottomAppBarColor: const Color(0xffFDAB01),
   );

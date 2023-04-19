@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mongo_dart/mongo_dart.dart';
+import 'package:viewgoapp/models/constantes.dart';
+import 'package:viewgoapp/models/mongo_db_model.dart';
 import 'package:viewgoapp/themes/app_theme.dart';
 
 class MovieSearchDelegate extends SearchDelegate{
+  final db = Db.create(MONGO_CONN);
+  late List<Map<String, dynamic>> _data;
+
   @override
   String? get searchFieldLabel => 'Buscar Artículo';
 
@@ -26,7 +32,33 @@ class MovieSearchDelegate extends SearchDelegate{
 
   @override
   Widget buildResults(BuildContext context) {
-    return Text('buildResults');
+
+    return FutureBuilder<List<dynamic>>(
+    future: MongoDBModel.getProductSuggestions(query),
+    builder: (context, snapshot) {
+      print(' SNAPSHOOOOT: ${snapshot}');
+      if (!snapshot.hasData) {
+        return const Center(child: CircularProgressIndicator());
+      }
+      
+      final suggestions = snapshot.data!;
+      print('DATOOOOOOOOOOOOS: ${suggestions}');
+      
+      return ListView.builder(
+        itemCount: suggestions.length,
+        itemBuilder: (context, index) {
+          print('SUGGESTION INDEX:');
+          print(suggestions[index]);
+          return ListTile(
+            title: Text(suggestions[index]),
+            onTap: () {
+              // Maneja la selección del usuario
+            },
+          );
+        },
+      );
+    },
+  );
   }
 
   @override

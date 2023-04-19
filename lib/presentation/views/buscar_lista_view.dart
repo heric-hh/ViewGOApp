@@ -38,7 +38,7 @@ class BuscarListaView extends StatelessWidget {
                     print(item['image']);
                     return Container(
                       height: size.height * 0.3,
-                      color: Colors.red,
+                      // color: Colors.red,
                       child: Row(
                         children: [
                           ImagenProducto(size: size, imagenUrl: item['image'],),
@@ -53,7 +53,7 @@ class BuscarListaView extends StatelessWidget {
                       ),
                     );
                   },
-                  childCount: 3,
+                  childCount: data.length,
                 ),
               ),
             ],
@@ -61,7 +61,7 @@ class BuscarListaView extends StatelessWidget {
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {
-          return const CircularProgressIndicator();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );
@@ -131,15 +131,14 @@ class DetallesProductos extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         width: size.width * 0.45,
         height: size.height * 0.25,
-        color: Colors.green,
+        // color: Colors.green,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(productoNombre),
+            Text(productoNombre, style: AppTheme.styleDescripcionProdc,),
             Text(productoPrecio),
             Text(productoCategoria)
-
           ],
         ),
       ),
