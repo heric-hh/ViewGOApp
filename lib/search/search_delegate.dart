@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:viewgoapp/models/constantes.dart';
 import 'package:viewgoapp/models/mongo_db_model.dart';
+import 'package:viewgoapp/presentation/screens/detalles_producto_screen.dart';
 import 'package:viewgoapp/themes/app_theme.dart';
 
 class MovieSearchDelegate extends SearchDelegate{
@@ -50,9 +51,23 @@ class MovieSearchDelegate extends SearchDelegate{
           print('SUGGESTION INDEX:');
           print(suggestions[index]);
           return ListTile(
-            title: Text(suggestions[index]),
-            onTap: () {
+            title: Text(suggestions[index], style: AppTheme.styleDescripcionProdc,),
+            onTap: () async{
               // Maneja la selección del usuario
+              final db = await Db.create(MONGO_CONN);
+              await db.open();
+              final productoPorDescription = await db.collection(COLECCION).findOne(where.eq('description', suggestions[index]));
+              print(productoPorDescription);
+
+              Navigator.push(
+                context, 
+                MaterialPageRoute(builder: (context) => DetalleProductosScreen(
+                  descripcion: productoPorDescription?['description'], 
+                  costo: productoPorDescription?['cost'], 
+                  categoria: productoPorDescription?['category'], 
+                  imagen: productoPorDescription?['image'])
+                )
+              );
             },
           );
         },

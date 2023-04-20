@@ -50,6 +50,16 @@ class MongoDBModel {
   print(products.map((product) => product['description'].toString()).toList());
 
   return Future.value(products.map((product) => product['description']).toList());
-}
+  
+  }
+
+
+  //* Buscar un articulo de la coleccion basado en el click del searchDelegate
+   static Future<Map<String, dynamic>> buscarPorDescription(description) async {
+    final productoPorDescription = await db.collection(COLECCION).findOne(where.eq('description', description));
+    return productoPorDescription;
+  }
+
+
 
 }

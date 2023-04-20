@@ -5,6 +5,7 @@ class AppTheme {
   static const Color terciary = Color(0xffF84C04);
   static const Color secondary = Color(0xffF95844);
   static const Color arrowBackColor = Color(0xff8BBF1D);
+  static const Color tileBackground = Color.fromARGB(255, 239, 239, 239);
 
   //* TextStyle para Titulos dentro del customPainter
   
@@ -57,10 +58,36 @@ class AppTheme {
     color: Colors.black87
   );
 
-  //* TextStyle para Titulo "Productos Populares" en ProductosView
+  //* TextStyle para Titulo en el ScrollView en ProductosView
   
   static const TextStyle styleDescripcionProdc = TextStyle(
     fontFamily: 'Lexend Bold',
+    fontSize: 16,
+    color: Colors.black87
+  );
+
+  static const TextStyle stylePrecioProdc = TextStyle(
+    fontFamily: 'Lexend Bold',
+    fontSize: 16,
+    color: primary
+  );
+
+  static const TextStyle styleCategoriaProdc = TextStyle(
+    fontFamily: 'Lexend Light',
+    fontSize: 14,
+    color: Colors.black54
+  );
+  
+  //* TextStyle para "Bienvenido a ViewGO"
+  
+  static const TextStyle bienvenidoBanner = TextStyle(
+    fontFamily: 'Lexend Bold',
+    fontSize: 26,
+    color: Colors.white
+  );
+
+   static const TextStyle instruccionesBanner = TextStyle(
+    fontFamily: 'Lexend Semibold',
     fontSize: 16,
     color: Colors.black87
   );

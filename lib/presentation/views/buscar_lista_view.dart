@@ -137,8 +137,8 @@ class DetallesProductos extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(productoNombre, style: AppTheme.styleDescripcionProdc,),
-            Text(productoPrecio),
-            Text(productoCategoria)
+            Text(productoPrecio, style: AppTheme.stylePrecioProdc,),
+            Text(productoCategoria, style: AppTheme.styleCategoriaProdc,)
           ],
         ),
       ),
