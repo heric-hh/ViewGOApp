@@ -28,6 +28,15 @@ class MongoDBModel {
     return listaDeDatos;
   }
 
+   static Future<List<Map<String, dynamic>>> getProductosStatus() async {
+    final productosByStatus = await db.collection(COLECCION).find(where.eq('status', true)).toList();
+    
+    print(productosByStatus);
+    return Future.value(productosByStatus);
+  }
+
+  
+
   //* Buscar los datos en la BD en funcion del id
   static Future<Map<String, dynamic>> buscarPorID(idQr) async {
     final productoPorId = await db.collection(COLECCION).findOne(where.eq('id', idQr));

@@ -14,7 +14,7 @@ class BuscarListaView extends StatelessWidget {
 
     // TODO: implement build
     return FutureBuilder(
-      future: MongoDBModel.getProductos(),
+      future: MongoDBModel.getProductosStatus(),
       builder: (context, snapshot) {
         if(snapshot.hasData) {
           final data = snapshot.data as List<Map<String, dynamic>>;
@@ -59,7 +59,7 @@ class BuscarListaView extends StatelessWidget {
             ],
           );
         } else if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}');
+          return Center(child: Text('Error: ${snapshot.error}'));
         } else {
           return const Center(child: CircularProgressIndicator());
         }
